@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Quality Account Setup - Informatica Training</title><style>
+:root{
+  --bg:#f6f8fb;--card:#fff;--ink:#1f2937;--muted:#667085;--blue:#155eef;--blue-soft:#eaf1ff;
+  --orange:#f97316;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--line:#e5e7eb;--dark:#0f172a;
+  --shadow:0 10px 30px rgba(15,23,42,.06)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,Segoe UI,Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.96);backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid #1e293b}
+.topbar-inner{max-width:1280px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;margin-right:auto}.brand-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--blue));display:grid;place-items:center}
+.topbar a{color:#cbd5e1;padding:7px 9px;border-radius:8px}.topbar a:hover,.topbar a.active{background:#1e293b;color:#fff}
+.container{max-width:1200px;margin:auto;padding:34px 24px 80px}
+.hero{background:linear-gradient(135deg,#fff,#eef4ff);border:1px solid #dbe6ff;border-radius:24px;padding:36px;box-shadow:var(--shadow)}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:800;font-size:12px}
+h1{font-size:40px;line-height:1.12;margin:8px 0 14px}h2{font-size:25px;margin:0 0 14px}h3{font-size:18px;margin:18px 0 8px}
+.lead{font-size:17px;color:#475467;max-width:880px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:22px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}.tile.available{border-color:#bfdbfe;background:#f8fbff}.tile.coming{opacity:.72}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.pill.blue{background:#dbeafe;color:#1d4ed8}.pill.green{background:#dcfce7;color:#166534}.pill.gray{background:#f1f5f9;color:#475569}
+.btn{display:inline-block;background:var(--blue);color:#fff!important;padding:10px 14px;border-radius:10px;font-weight:800}.btn.secondary{background:#334155}.btn.ghost{background:#fff;color:var(--blue)!important;border:1px solid #bfdbfe}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}.node{background:#fff;border:2px solid #cbd5e1;border-radius:13px;padding:10px 13px;font-weight:700}.arrow{color:#64748b;font-size:18px}
+.callout{border-left:4px solid var(--blue);background:var(--blue-soft);border-radius:10px;padding:14px 16px;margin:14px 0}.callout.warn{border-color:var(--yellow);background:#fff7ed}.callout.ok{border-color:var(--green);background:#f0fdf4}.callout.danger{border-color:var(--red);background:#fef2f2}
+.step{border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0;background:#fff}.step-head{display:flex;gap:12px;align-items:flex-start}.num{width:34px;height:34px;flex:0 0 34px;background:var(--blue);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:800}
+.done{margin-left:auto;display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}.done input{width:18px;height:18px}
+pre{background:#111827;color:#e5e7eb;border-radius:13px;padding:15px;overflow:auto}code{font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc}
+.muted{color:var(--muted);font-size:13px}details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff}summary{cursor:pointer;font-weight:800}
+.checklist li{margin:7px 0}.sources a{word-break:break-word}.footer{margin-top:30px;background:var(--dark);color:#cbd5e1;border-radius:16px;padding:20px}
+.progress{height:9px;background:#e2e8f0;border-radius:999px;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#3b82f6)}
+@media(max-width:850px){.grid,.grid3{grid-template-columns:1fr}.topbar-inner{flex-wrap:wrap}.container{padding:22px 16px 60px}h1{font-size:32px}}
+</style><link rel="stylesheet" href="training-theme.css">
+</head>
+<body><a class="skip-link" href="#main-content">Skip to content</a><nav class="training-navigation" aria-label="Training pages"><a class="site-brand" href="index.html">INFORMATICA <span style="font-weight:400;color:#8fb0be">/ learning lab</span></a><a href="index.html">Training Home</a>
+<details class="nav-dropdown"><summary>Setup</summary><div class="nav-options"><a href="setup_data_quality.html" aria-current="page">Informatica Data Quality Setup</a>
+<a href="setup_secure_agent.html">Computer Setup</a>
+<a href="setup_salesforce_informatica.html">Salesforce Setup</a></div></details>
+<details class="nav-dropdown"><summary>Exercise</summary><div class="nav-options"><a href="exercise1_customer_csv.html">Exercise 1</a></div></details>
+
+</nav><div class="computer-setup-layout"><aside class="computer-setup-sidebar" aria-label="Data Quality setup guide"><div class="toc-title">In this guide</div><nav aria-label="Guide sections"><a href="#overview">Overview</a>
+<a href="#before">Before you start</a>
+<a href="#open-trial">1. Open the trial page</a>
+<a href="#registration">2. Complete your details</a>
+<a href="#region">3. Choose a data center</a>
+<a href="#submit">4. Submit your registration</a>
+<a href="#activate">5. Activate and sign in</a>
+<a href="#ready">6. Check you are ready</a>
+<a href="#troubleshoot">Troubleshooting</a>
+<a href="#reference">Official reference</a></nav></aside><main class="container" id="main-content">
+<section class="hero" id="overview"><div class="eyebrow">Data Quality · Account preparation</div><h1>Create your Data Quality training account</h1><p class="lead">Prepare for the Data Quality exercises by registering for an Informatica Cloud Data Quality trial and checking that you can access the service.</p><div class="callout">Informatica currently advertises a <strong>free 30-day trial</strong>. Check the trial terms when you register and plan your exercises within the available trial period.</div><p><a class="btn" href="https://www.informatica.com/trials/cloud-data-quality.html" target="_blank" rel="noopener noreferrer">Open the official trial page &nearr;</a></p></section>
+<section class="card" id="before"><h2>Before you start</h2><ul><li>Have access to your work email inbox.</li><li>Prepare your own name, organization, phone number, and location details.</li><li>Choose a data center location appropriate for your location and any organization data residency requirements.</li></ul><p class="muted">Values in braces, such as <code>{your work email}</code>, are placeholders. Replace them with your own details on the Informatica registration form.</p></section>
+<section class="card" id="open-trial"><h2>1. Open the trial page</h2><div class="step"><div class="step-head"><div class="num">1</div><div style="flex:1;min-width:0"><strong>Open Cloud Data Quality registration.</strong><p>Follow the <a href="https://www.informatica.com/trials/cloud-data-quality.html" target="_blank" rel="noopener noreferrer">official Cloud Data Quality trial link</a>. Confirm that the page is for Cloud Data Quality and locate the registration form.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="1">Done</label></div></div></section>
+<section class="card" id="registration"><h2>2. Complete your registration details</h2><p>Use this field guide while completing the form on Informatica’s website. Fields and available options may vary.</p><table><thead><tr><th scope="col">Form field</th><th scope="col">Your entry</th><th scope="col">Guidance</th></tr></thead><tbody><tr><td>First Name / Last Name</td><td>{your first name} / {your last name}</td><td>Enter your own name.</td></tr><tr><td>Job Title</td><td>{your job title}</td><td>Use your current role or a title that accurately describes your work or studies.</td></tr><tr><td>Work Email</td><td>{your work email}</td><td>Use an email inbox you can access for registration messages.</td></tr><tr><td>Use my email address as my username</td><td>Choose your preference</td><td>Select this option to use your email as your username. Otherwise enter a username accepted by the form.</td></tr><tr><td>Username</td><td>{your unique username}</td><td>Use your own unique value and remember it for sign-in.</td></tr><tr><td>Role selection</td><td>Developer, if appropriate</td><td>Choose the role that best describes you from the available options.</td></tr><tr><td>Phone Number</td><td>{your phone number with country code}</td><td>Enter your own reachable phone number.</td></tr><tr><td>Organization Name</td><td>{your organization name}</td><td>Enter the organization you belong to. If you are learning independently, follow the form’s guidance for individual registrations.</td></tr><tr><td>Country / State / Province</td><td>{your country} / {your state or province}</td><td>Select or enter your actual location.</td></tr><tr><td>City / Postal Code</td><td>{your city} / {your postal code}</td><td>Enter the location details requested by the form.</td></tr><tr><td>Additional fields, if displayed</td><td>{your applicable details}</td><td>Complete any additional required fields shown for your region, such as address or employee range.</td></tr></tbody></table><div class="step"><div class="step-head"><div class="num">2</div><div style="flex:1;min-width:0"><strong>Enter your own details in all required fields.</strong><p>Check the spelling of your email address and confirm your username choice before continuing.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="2">Done</label></div></div></section>
+<section class="card" id="region"><h2>3. Choose a data center location</h2><div class="step"><div class="step-head"><div class="num">3</div><div style="flex:1;min-width:0"><strong>Select an appropriate data center location.</strong><p>Use the <strong>Data Center Location</strong> dropdown. This determines where your service instance runs and where metadata, and data for some services, is stored.</p><p>For example, choose <strong>Asia Pacific</strong> if it is available and appropriate for your location. Follow your organization’s location requirements.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="3">Done</label></div></div></section>
+<section class="card" id="submit"><h2>4. Review and submit</h2><div class="step"><div class="step-head"><div class="num">4</div><div style="flex:1;min-width:0"><strong>Review your details and consent choices.</strong><p>Read the subscription agreement and accept it if you agree. Make your own choice about the separate marketing communications checkbox.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="4">Done</label></div></div><div class="step"><div class="step-head"><div class="num">5</div><div style="flex:1;min-width:0"><strong>Select Start your FREE trial.</strong><p>Complete any verification prompts and follow the confirmation instructions shown by Informatica. If a field is highlighted, correct it before submitting again.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="5">Done</label></div></div></section>
+<section class="card" id="activate"><h2>5. Activate your account and sign in</h2><div class="step"><div class="step-head"><div class="num">6</div><div style="flex:1;min-width:0"><strong>Follow the instructions from Informatica.</strong><p>Check the confirmation page and your email inbox for the next steps. If an activation email is sent, follow its link to open the account creation page.</p><p>Keep your password private and save your sign-in details in your password manager.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="6">Done</label></div></div><div class="step"><div class="step-head"><div class="num">7</div><div style="flex:1;min-width:0"><strong>Set your new Informatica account password.</strong><p>When the activation link opens <strong>Create Your Account</strong>, complete the following fields:</p><ol><li>Check that <strong>Your User Name</strong> shows the username you registered.</li><li>Enter your own new password in <strong>Your New Password</strong>. Follow the password requirements displayed on the page.</li><li>Enter the same password in <strong>Confirm New Password</strong>.</li><li>Select <strong>Your Security Question</strong> and enter your own answer in <strong>Your Security Question’s Answer</strong>.</li><li>Choose whether to receive marketing communications, then click <strong>Submit</strong>.</li></ol><p>Wait for confirmation that account creation is complete, then sign in with your username and new password. Keep your password and security answer private.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="create-password">Done</label></div></div><div class="step"><div class="step-head"><div class="num">8</div><div style="flex:1;min-width:0"><strong>Sign in to your trial environment.</strong><p>Use the sign-in link provided during registration or in your welcome email. Bookmark the environment URL so you can return for the exercises.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="7">Done</label></div></div></section>
+<section class="card" id="ready"><h2>6. Check you are ready for the exercises</h2><div class="step"><div class="step-head"><div class="num">9</div><div style="flex:1;min-width:0"><strong>Confirm access to Cloud Data Quality.</strong><p>After signing in, look for the Data Quality service in your available services and open it. If access is still being provisioned, follow any status message before trying again.</p></div><label class="done"><input type="checkbox" class="dq-check" data-step="8">Done</label></div></div><div class="callout ok">Account setup complete — use this environment for your self-paced Data Quality exercises.</div></section>
+<section class="card" id="troubleshoot"><h2>Troubleshooting</h2><details><summary>I have not received an email</summary><p>Check spam and junk folders and verify the email address you submitted. Follow any resend or support option provided on the confirmation page.</p></details><details><summary>The username or email is already registered</summary><p>Follow the form’s message. If the account belongs to you, use the sign-in or account recovery option. Check whether your existing account has Data Quality access. If trial eligibility or access is unclear, use the support options on the trial page.</p></details><details><summary>I cannot see the Data Quality service</summary><p>Confirm you registered through the Cloud Data Quality trial page and signed in to the environment from your welcome instructions. Follow any provisioning message, then contact Informatica support if access remains unavailable.</p></details><details><summary>My form looks different</summary><p>Use the labels on the live registration form. Complete required fields with your own details. Use the field help text to choose the appropriate region and organization options, or use the page’s support options if needed.</p></details></section>
+<section class="card" id="reference"><h2>Official reference</h2><p>The trial duration and registration fields were checked on 18 November 2026. See the current offer and requirements on the <a href="https://www.informatica.com/trials/cloud-data-quality.html" target="_blank" rel="noopener noreferrer">Informatica Cloud Data Quality trial page</a>.</p></section>
+<div class="footer"><a href="index.html">Return to Training Home</a></div></main></div><script>
+(() => {
+ document.querySelectorAll('.dq-check').forEach((checkbox) => {
+  const key = 'inf_dq_setup_' + checkbox.dataset.step;
+  try { checkbox.checked = localStorage.getItem(key) === '1'; } catch (error) {}
+  checkbox.addEventListener('change', () => {
+   try { localStorage.setItem(key, checkbox.checked ? '1' : '0'); } catch (error) {}
+  });
+ });
+})();
+</script><script>
+(() => {
+  const dropdowns = [...document.querySelectorAll('.training-navigation .nav-dropdown')];
+  document.addEventListener('click', (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) dropdown.open = false;
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const focusedDropdown = dropdowns.find((dropdown) => dropdown.open && dropdown.contains(document.activeElement));
+    dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    if (focusedDropdown) focusedDropdown.querySelector('summary').focus();
+  });
+})();
+</script></body></html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Computer Setup - Informatica Secure Agent</title><style>
+:root{
+  --bg:#f6f8fb;--card:#fff;--ink:#1f2937;--muted:#667085;--blue:#155eef;--blue-soft:#eaf1ff;
+  --orange:#f97316;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--line:#e5e7eb;--dark:#0f172a;
+  --shadow:0 10px 30px rgba(15,23,42,.06)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,Segoe UI,Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.96);backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid #1e293b}
+.topbar-inner{max-width:1280px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;margin-right:auto}.brand-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--blue));display:grid;place-items:center}
+.topbar a{color:#cbd5e1;padding:7px 9px;border-radius:8px}.topbar a:hover,.topbar a.active{background:#1e293b;color:#fff}
+.container{max-width:1200px;margin:auto;padding:34px 24px 80px}
+.hero{background:linear-gradient(135deg,#fff,#eef4ff);border:1px solid #dbe6ff;border-radius:24px;padding:36px;box-shadow:var(--shadow)}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:800;font-size:12px}
+h1{font-size:40px;line-height:1.12;margin:8px 0 14px}h2{font-size:25px;margin:0 0 14px}h3{font-size:18px;margin:18px 0 8px}
+.lead{font-size:17px;color:#475467;max-width:880px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:22px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}.tile.available{border-color:#bfdbfe;background:#f8fbff}.tile.coming{opacity:.72}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.pill.blue{background:#dbeafe;color:#1d4ed8}.pill.green{background:#dcfce7;color:#166534}.pill.gray{background:#f1f5f9;color:#475569}
+.btn{display:inline-block;background:var(--blue);color:#fff!important;padding:10px 14px;border-radius:10px;font-weight:800}.btn.secondary{background:#334155}.btn.ghost{background:#fff;color:var(--blue)!important;border:1px solid #bfdbfe}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}.node{background:#fff;border:2px solid #cbd5e1;border-radius:13px;padding:10px 13px;font-weight:700}.arrow{color:#64748b;font-size:18px}
+.callout{border-left:4px solid var(--blue);background:var(--blue-soft);border-radius:10px;padding:14px 16px;margin:14px 0}.callout.warn{border-color:var(--yellow);background:#fff7ed}.callout.ok{border-color:var(--green);background:#f0fdf4}.callout.danger{border-color:var(--red);background:#fef2f2}
+.step{border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0;background:#fff}.step-head{display:flex;gap:12px;align-items:flex-start}.num{width:34px;height:34px;flex:0 0 34px;background:var(--blue);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:800}
+.done{margin-left:auto;display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}.done input{width:18px;height:18px}
+pre{background:#111827;color:#e5e7eb;border-radius:13px;padding:15px;overflow:auto}code{font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc}
+.muted{color:var(--muted);font-size:13px}details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff}summary{cursor:pointer;font-weight:800}
+.checklist li{margin:7px 0}.sources a{word-break:break-word}.footer{margin-top:30px;background:var(--dark);color:#cbd5e1;border-radius:16px;padding:20px}
+.progress{height:9px;background:#e2e8f0;border-radius:999px;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#3b82f6)}
+@media(max-width:850px){.grid,.grid3{grid-template-columns:1fr}.topbar-inner{flex-wrap:wrap}.container{padding:22px 16px 60px}h1{font-size:32px}}
+</style><link rel="stylesheet" href="training-theme.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<nav class="training-navigation" aria-label="Training pages"><a class="site-brand" href="index.html">INFORMATICA <span style="font-weight:400;color:#8fb0be">/ learning lab</span></a><a href="index.html">Training Home</a>
+<details class="nav-dropdown"><summary>Setup</summary><div class="nav-options"><a href="setup_data_quality.html">Informatica Data Quality Setup</a>
+<a href="setup_secure_agent.html" aria-current="page">Computer Setup</a>
+<a href="setup_salesforce_informatica.html">Salesforce Setup</a></div></details>
+<details class="nav-dropdown"><summary>Exercise</summary><div class="nav-options"><a href="exercise1_customer_csv.html">Exercise 1</a></div></details>
+
+</nav>
+<div class="computer-setup-layout">
+<aside class="computer-setup-sidebar" aria-label="Computer setup guide"><div class="toc-title">In this guide</div><nav aria-label="Guide sections"><a href="#overview">Overview</a>
+<a href="#before">Before you start</a>
+<a href="#download">1. Download the Secure Agent</a>
+<a href="#install">2. Install on Windows</a>
+<a href="#register">3. Register the agent</a>
+<a href="#group">4. Create the runtime environment</a>
+<a href="#verify">5. Verify your setup</a>
+<a href="#troubleshoot">Troubleshooting</a>
+<a href="#references">Official references</a><a href="exercise1_customer_csv.html">Next exercise</a></nav><div class="progressbox"><strong>My progress</strong><div class="progress"><div id="progressBar"></div></div>
+<p class="muted"><span id="doneCount">0</span> of <span id="totalCount">0</span> setup steps completed. Your progress is saved in this browser.</p></div></aside>
+<main class="container" id="main-content">
+<section class="hero" id="overview">
+<div class="eyebrow">Module 0 · Required Setup</div>
+<h1>Connect a Windows Computer to Informatica</h1>
+<p class="lead">This guide installs and registers the Informatica Secure Agent, then places it in the training runtime environment. It assumes the student has never installed an Informatica agent before.</p>
+<div class="callout"><strong>Why do we need this?</strong> Informatica runs in the cloud, but Exercise 1 uses a CSV file stored on your Windows computer. The Secure Agent is the bridge that lets Informatica execute work against local files and other private resources.</div>
+
+</section>
+
+<section class="card" id="before"><h2>Before Installing Anything</h2>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>Confirm that you have an Informatica IDMC user account.</strong><p>You must be able to sign in to your organization's Informatica Intelligent Data Management Cloud environment.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Confirm that you can open the Administrator service.</strong><p>After signing in, use the service selector and open <code>Administrator</code>. If you cannot access Administrator or Runtime Environments, check that you are signed in to the correct account and that your account has the required permissions. For an organization-managed account, contact your account administrator if access is restricted.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Use a supported 64-bit Windows computer.</strong><p class="muted">Supported operating systems can change. For production use, check the current Informatica Product Availability Matrix. This training uses Windows 64-bit.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>Make sure no other Secure Agent is already installed on this computer.</strong><p>If a Secure Agent is already present, do not install a second copy on top of it. Check whether the existing agent is registered to the account you will use for this lab and is running. Reuse it when it meets those requirements. If it serves another environment, use a separate training computer rather than removing an agent that may be in use.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">5</div><div><strong>Confirm you can run installers as a Windows administrator.</strong><p>Informatica documents that the Secure Agent must run with appropriate local Administrator permissions on Windows.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">6</div><div><strong>Confirm internet connectivity.</strong><p>The Secure Agent uses outbound HTTPS on port <code>443</code>. If your organization uses a firewall, proxy, VPN, or endpoint security product, make sure it permits the required Informatica domains for your POD.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="callout warn"><strong>Corporate networks:</strong> if you use an outbound proxy, collect the proxy host, port, and credentials before continuing. If the installer download is blocked, Informatica specifically documents allowing <code>https://global-package.dm.informaticacloud.com</code>.</div>
+</section>
+
+<section class="card" id="download"><h2>Part A — Download the Secure Agent</h2>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>Sign in to Informatica IDMC.</strong><p>Use the same IDMC user that belongs to the organization where you will perform the training.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Open <code>Administrator</code>.</strong><p>Use the Informatica service selector if another service is currently open.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Click <code>Runtime Environments</code> in the left navigation.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>Click <code>Download Runtime Installer</code>.</strong><p class="muted">In some Informatica versions this may be labeled <code>Download Secure Agent</code>. Use the Secure Agent download option, not a serverless or elastic runtime installer.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">5</div><div><strong>Select <code>Secure Agent</code> as the environment type.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">6</div><div><strong>Select <code>Windows 64</code> as the platform.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">7</div><div><strong>Copy the install token.</strong><p>Keep it temporarily in a safe place such as Notepad. Informatica states that the install token expires after <strong>24 hours</strong>.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">8</div><div><strong>Click <code>Download</code>.</strong><p>The Windows installer filename normally resembles:</p><pre>agent64_install_ng_ext.&lt;agent-core-version&gt;.exe</pre></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="install"><h2>Part B — Install the Secure Agent on Windows</h2>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>Open your Windows Downloads folder.</strong><p>Locate the Secure Agent installer you downloaded.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Right-click the installer and choose <code>Run as administrator</code>.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Approve the Windows User Account Control prompt.</strong><p>Click <code>Yes</code> when Windows asks whether the installer can make changes to the device.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>Choose the Secure Agent installation directory.</strong><p>For a beginner lab, the default installation location is normally appropriate. Informatica advises that the installation path should not contain multibyte characters.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">5</div><div><strong>Click <code>Next</code>, then <code>Install</code>.</strong><p>Wait for the files to finish installing. Do not close the installer while it is working.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">6</div><div><strong>Wait for <code>Informatica Cloud Secure Agent</code> / Secure Agent Manager to open.</strong><p>After installation, the agent is installed locally but is not yet registered to your Informatica organization.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="register"><h2>Part C — Register the Agent with Informatica</h2>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>In Secure Agent Manager, find the registration fields.</strong><p>You should be prompted for an Informatica <strong>User Name</strong> and <strong>Install Token</strong>.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Enter your IDMC user name.</strong><p>This is the user name you use to access Informatica IDMC.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Paste the install token you copied earlier.</strong><p>If the token is older than 24 hours, return to <code>Administrator → Runtime Environments</code> and generate/copy a new install token. You do not need to redownload the installer just because the token expired.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>Click <code>Register</code>.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">5</div><div><strong>Wait while the Secure Agent services start.</strong><p>This can take a few minutes. Do not assume something is wrong immediately after registration.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">6</div><div><strong>Confirm the local status.</strong><p>The Secure Agent utility should eventually report:</p><pre>The Secure Agent and all services are up and running.</pre></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="group"><h2>Part D — Create the Training Runtime Environment</h2>
+<div class="callout">An installed Secure Agent is the actual software running on the computer. A <strong>Secure Agent group / runtime environment</strong> is the logical runtime you select when creating Informatica connections and tasks.</div>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>Return to <code>Administrator → Runtime Environments</code> in your browser.</strong></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Refresh the Runtime Environments page.</strong><p>The newly registered Secure Agent may initially appear in an existing group or under unassigned agents, depending on the tenant configuration.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Click <code>New Runtime Environment</code>.</strong><p>This creates the Secure Agent group we will use for training.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>Name the environment:</strong><pre>LocalTrainingRuntime</pre><p>You may add a description such as <code>Local Windows runtime for Informatica training</code>, then create/save the runtime environment.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">5</div><div><strong>Add your Secure Agent to <code>LocalTrainingRuntime</code>.</strong><p>Open the Actions menu for the new runtime environment and choose <code>Add or Remove Secure Agents</code>. Select your newly registered agent and confirm/save.</p><p class="muted">Select the Secure Agent registered from your own computer. Its displayed name depends on your installation.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">6</div><div><strong>Expand <code>LocalTrainingRuntime</code>.</strong><p>Verify the Secure Agent is now listed underneath the group.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">7</div><div><strong>Confirm the runtime status is Running.</strong><p>For the training, the desired end state is:</p><pre>LocalTrainingRuntime
+└── &lt;your Secure Agent&gt;    Running</pre></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="verify"><h2>Part E — Final Verification</h2>
+<div class="step"><div class="step-head"><div class="num">1</div><div><strong>Leave the Secure Agent service running.</strong><p>You do not need to keep the small Secure Agent Manager window open. Closing the window does not normally stop the Windows Secure Agent service.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">2</div><div><strong>Confirm the agent is visible in Informatica after a browser refresh.</strong><p>If the Runtime Environments page shows the runtime and agent as Running, the cloud tenant can communicate with the agent.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">3</div><div><strong>Create a local training folder if it does not already exist.</strong><p>For our lab:</p><pre>C:\Users\{username}\Documents</pre><p class="muted">Replace <code>{username}</code> with your Windows account folder name. If your Documents folder is in a different location, use its actual path.</p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="step-head"><div class="num">4</div><div><strong>You are ready for Exercise 1.</strong><p>The next exercise creates a Flat File connection that uses <code>LocalTrainingRuntime</code> to read <code>customers.csv</code> from this computer.</p><p><a class="btn" href="exercise1_customer_csv.html">Continue to Exercise 1</a></p></div><label class="done"><input class="progress-check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="troubleshoot"><h2>Troubleshooting</h2>
+<details open><summary>The install token is rejected or expired</summary><p>Install tokens expire after 24 hours. Return to <code>Administrator → Runtime Environments</code>, use the install-token option to obtain a new token, and register again. You normally do not need to download the installer again.</p></details>
+<details><summary>The Secure Agent installs but remains inactive</summary><p>Wait several minutes first. If it stays inactive, check internet connectivity, proxy configuration, firewall rules, outbound HTTPS/443, and the correct IDMC POD allowlist. Informatica also recommends checking Windows Event Viewer and Secure Agent logs when startup fails.</p></details>
+<details><summary>The installer download fails</summary><p>Informatica documents allowing <code>https://global-package.dm.informaticacloud.com</code> through the firewall for Secure Agent installer download failures.</p></details>
+<details><summary>My organization uses a proxy server</summary><p>Configure the proxy in Secure Agent Manager using the proxy details supplied by your network administrator. Incorrect proxy configuration can prevent registration and keep the agent inactive.</p></details>
+<details><summary>I already have another Secure Agent installed</summary><p>Do not install a second agent over an existing installation. Decide whether to reuse the existing agent or uninstall it first. Informatica's installation guidance requires that another Secure Agent not already be installed on the machine before a fresh installation.</p></details>
+<details><summary>The Secure Agent is registered but is not in LocalTrainingRuntime</summary><p>Refresh <code>Runtime Environments</code>. Open the Actions menu for <code>LocalTrainingRuntime</code> and use <code>Add or Remove Secure Agents</code> to select the registered agent. Only agents available to be moved into the group will appear.</p></details>
+</section>
+
+<section class="card sources" id="references"><h2>Official References Used for This Setup</h2>
+<p class="muted">The setup flow was checked against Informatica's current documentation before this training page was created.</p>
+<ul>
+<li><a href="https://docs.informatica.com/cloud-common-services/administrator/current-version/runtime-environments.html" target="_blank">Informatica Runtime Environments documentation</a></li>
+<li><a href="https://docs.informatica.com/cloud-common-services/administrator/current-version/runtime-environments/secure-agent-installation/installing-on-windows.html" target="_blank">Installing the Secure Agent on Windows</a></li>
+<li><a href="https://docs.informatica.com/cloud-common-services/administrator/current-version/runtime-environments/secure-agent-installation/installing-on-windows/secure-agent-requirements-on-windows/configuring-the-firewall.html" target="_blank">Configuring the firewall for Secure Agent</a></li>
+<li><a href="https://docs.informatica.com/cloud-common-services/administrator/current-version/runtime-environments/secure-agent-installation/troubleshooting-a-secure-agent-installation.html" target="_blank">Troubleshooting Secure Agent installation</a></li>
+</ul>
+<div class="callout ok"><strong>Setup complete criteria:</strong> Informatica shows <code>LocalTrainingRuntime</code> as Running, your local Secure Agent appears inside it, and the local Secure Agent utility reports that all services are up and running.</div>
+</section>
+
+<div class="footer"><a href="index.html">Return to Training Home</a></div>
+</main>
+</div>
+<script>
+const checks=[...document.querySelectorAll('.progress-check')];
+const total=document.getElementById('totalCount'),done=document.getElementById('doneCount'),bar=document.getElementById('progressBar');
+total.textContent=checks.length;
+checks.forEach((c,i)=>{c.checked=localStorage.getItem('inf_setup_'+i)==='1';c.addEventListener('change',()=>{localStorage.setItem('inf_setup_'+i,c.checked?'1':'0');update()})});
+function update(){const n=checks.filter(c=>c.checked).length;done.textContent=n;bar.style.width=(n/checks.length*100)+'%'}
+update();
+</script>
+
+<script>
+(() => {
+  const dropdowns = [...document.querySelectorAll('.training-navigation .nav-dropdown')];
+  document.addEventListener('click', (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) dropdown.open = false;
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const focusedDropdown = dropdowns.find((dropdown) => dropdown.open && dropdown.contains(document.activeElement));
+    dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    if (focusedDropdown) focusedDropdown.querySelector('summary').focus();
+  });
+})();
+</script>
+</body></html>

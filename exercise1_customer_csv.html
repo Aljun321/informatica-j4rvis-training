@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informatica Data Integration Training - Exercise 1</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#1f2937;--muted:#667085;--blue:#155eef;--blue2:#eaf1ff;--orange:#f97316;--green:#16a34a;--red:#dc2626;--line:#e5e7eb;--dark:#0f172a}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,Segoe UI,Arial,sans-serif}
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--dark);color:#e5e7eb;padding:22px}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:20px}.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--blue));display:grid;place-items:center;font-weight:800;color:#fff}
+aside h1{font-size:16px;margin:0}.small{font-size:12px;color:#94a3b8}.toc{margin-top:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#64748b}
+nav{display:flex;flex-direction:column;gap:4px}nav a{color:#cbd5e1;text-decoration:none;padding:8px 10px;border-radius:9px}nav a:hover{background:#1e293b;color:#fff}
+.progressBox{margin-top:24px;border:1px solid #334155;background:#111827;border-radius:14px;padding:14px}.bar{height:8px;background:#334155;border-radius:999px;overflow:hidden;margin:10px 0}.bar>div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#3b82f6)}
+main{max-width:1280px;width:100%;margin:auto;padding:34px 46px 80px}
+.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.hero{padding:34px;background:linear-gradient(135deg,#fff,#eef4ff)}.eyebrow{text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:800;font-size:12px}
+h1{font-size:38px;line-height:1.15;margin:6px 0 12px}h2{font-size:24px;margin:0 0 14px}h3{font-size:18px;margin:18px 0 8px}.lead{font-size:17px;color:#475467;max-width:900px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #d0d5dd;border-radius:999px;padding:6px 10px;background:#fff;font-size:13px}
+.card{padding:26px;margin-top:22px}.step{border:1px solid var(--line);border-radius:15px;padding:16px;margin:14px 0}.head{display:flex;gap:12px;align-items:flex-start}.n{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800}.done{margin-left:auto;color:var(--muted);font-size:13px;display:flex;gap:7px;align-items:center}.done input{width:18px;height:18px}
+.callout{padding:14px 16px;border-left:4px solid var(--blue);background:var(--blue2);border-radius:10px;margin:14px 0}.warn{border-color:#d97706;background:#fff7ed}.ok{border-color:var(--green);background:#f0fdf4}.danger{border-color:var(--red);background:#fef2f2}
+pre{background:#111827;color:#e5e7eb;border-radius:13px;padding:15px;overflow:auto}code{font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:10px 0}th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line)}th{background:#f8fafc}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:18px}.node{padding:11px 13px;border:2px solid #cbd5e1;border-radius:13px;background:#fff;font-weight:700}.arrow{color:#64748b;font-size:19px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.muted{color:var(--muted);font-size:13px}.good{color:#166534;background:#dcfce7;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:700}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+button{border:0;background:#334155;color:white;border-radius:9px;padding:8px 11px;cursor:pointer;font-weight:700}
+footer{margin-top:24px;background:var(--dark);color:#cbd5e1;border-radius:16px;padding:20px}
+@media(max-width:950px){.layout{grid-template-columns:1fr}aside{position:relative;height:auto}.grid{grid-template-columns:1fr}main{padding:20px}h1{font-size:31px}}
+</style>
+<link rel="stylesheet" href="training-theme.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="training-navigation" aria-label="Training pages"><a class="site-brand" href="index.html">INFORMATICA <span style="font-weight:400;color:#8fb0be">/ learning lab</span></a><a href="index.html">Training Home</a>
+<details class="nav-dropdown"><summary>Setup</summary><div class="nav-options"><a href="setup_data_quality.html">Informatica Data Quality Setup</a>
+<a href="setup_secure_agent.html">Computer Setup</a>
+<a href="setup_salesforce_informatica.html">Salesforce Setup</a></div></details>
+<details class="nav-dropdown"><summary>Exercise</summary><div class="nav-options"><a href="exercise1_customer_csv.html" aria-current="page">Exercise 1</a></div></details>
+
+</nav>
+
+<div class="layout">
+<aside>
+  <div class="toc-title">In this guide</div>
+  <nav>
+    <a href="#overview">Overview</a><a href="#prereq">Prerequisites</a><a href="#file">1. Prepare CSV</a>
+    <a href="#runtime">2. Runtime & Secure Agent</a><a href="#connection">3. Flat File Connection</a>
+    <a href="#mapping">4. Create Mapping</a><a href="#source">5. Configure Source</a>
+    <a href="#expression">6. Expression</a><a href="#filter">7. Filter</a><a href="#target">8. Target</a>
+    <a href="#run">9. Validate & Run</a><a href="#verify">10. Verify Output</a><a href="#trouble">Troubleshooting</a><a href="#recap">Recap</a>
+  </nav>
+  <div class="progressBox"><strong>Progress</strong><div class="small"><span id="doneCount">0</span> / <span id="totalCount">0</span> steps</div><div class="bar"><div id="progress"></div></div><button onclick="resetProgress()">Reset progress</button></div>
+</aside>
+
+<main id="main-content">
+<section class="hero" id="overview">
+  <div class="eyebrow">Informatica Cloud Data Integration</div>
+  <h1>Exercise 1: Customer CSV Transformation</h1>
+  <p class="lead">Build a complete beginner ETL pipeline that reads a local <code>customers.csv</code>, enriches the data, filters out customers younger than 18, and creates <code>adult_customers.csv</code>.</p>
+  <div class="chips"><span class="chip">Beginner</span><span class="chip">Secure Agent</span><span class="chip">Flat File</span><span class="chip">Expression</span><span class="chip">Filter</span><span class="chip">Target CSV</span></div>
+  <div class="flow"><div class="node">customers.csv</div><div class="arrow">→</div><div class="node">SRC_Customer</div><div class="arrow">→</div><div class="node">EXP_Customer_Transform</div><div class="arrow">→</div><div class="node">FIL_AdultOnly</div><div class="arrow">→</div><div class="node">adult_customers.csv</div></div>
+</section>
+
+<section class="card" id="prereq">
+<h2>Before You Start</h2>
+<div class="grid">
+<div><h3>You need</h3><ul><li>Informatica IDMC access with Data Integration.</li><li>A Windows computer with Informatica Secure Agent installed.</li><li>Permission to create connections and mappings.</li><li>A writable local folder such as <code>C:\Users\{username}\Documents</code>.</li></ul></div>
+<div><h3>You will learn</h3><ul><li>Secure Agent and Runtime Environment basics.</li><li>Flat File connections.</li><li>Source, Expression, Filter, and Target transformations.</li><li>Data-type conversion and derived fields.</li><li>Job execution and monitoring.</li></ul></div>
+</div>
+<div class="callout"><strong>Mental model:</strong> the Informatica cloud UI does not directly read your laptop file. The Secure Agent running on Windows reads and writes the local files.</div>
+</section>
+
+<section class="card" id="file"><h2>1. Prepare <code>customers.csv</code></h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Open the Windows Documents folder.</strong><div class="muted">Lab path: <code>C:\Users\{username}\Documents</code>. Replace <code>{username}</code> with your Windows account folder name. If your Documents folder is in a different location, use its actual path.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Create a new file named <code>customers.csv</code>.</strong><div class="muted">You can use Notepad, VS Code, Excel, or another editor that can save CSV.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Paste this exact sample data.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div>
+<pre>"id","firstName","lastName","age","country"
+"1","John","Smith","25","Australia"
+"2","Mary","Jones","17","Philippines"
+"3","James","Brown","35","Australia"
+"4","Anna","Reyes","62","Philippines"
+"5","Mark","Santos","16","Philippines"</pre></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Save the file.</strong><div class="muted">Confirm it is located at <code>C:\Users\{username}\Documents\customers.csv</code>.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="callout warn"><strong>Windows path only for this lab.</strong> Do not configure <code>/Users/{username}/Documents</code>; that is a macOS-style path and previously caused our FR_3000 error.</div>
+</section>
+
+<section class="card" id="runtime"><h2>2. Verify Runtime Environment and Secure Agent</h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Log in to Informatica IDMC and open <code>Administrator</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Click <code>Runtime Environments</code> in the left navigation.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Locate <code>LocalTrainingRuntime</code>.</strong><div class="muted">This is the Agent Group used in this training.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Expand <code>LocalTrainingRuntime</code>.</strong><div class="muted">Confirm that your registered Secure Agent appears below it.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">5</div><div><strong>Confirm the runtime is Running.</strong><div class="muted">The local Secure Agent utility should eventually say: “The Secure Agent and all services are up and running.”</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="callout ok">Once the desktop Secure Agent utility says all services are running, you may close that small window. The Secure Agent continues running as a Windows service.</div>
+</section>
+
+<section class="card" id="connection"><h2>3. Create the Flat File Connection</h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Still in Administrator, click <code>Connections</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Click <code>Add Connection</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Select the <code>Flat File</code> connector.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Enter the connection settings.</strong>
+<table><thead><tr><th scope="col">Setting</th><th scope="col">Value for this lab</th></tr></thead><tbody>
+<tr><td>Connection Name</td><td><code>CONN_Training_Files</code></td></tr>
+<tr><td>Description (optional)</td><td>Local CSV files for the customer transformation exercise</td></tr>
+<tr><td>Runtime Environment</td><td><code>LocalTrainingRuntime</code></td></tr>
+<tr><td>Directory</td><td><code>C:\Users\{username}\Documents</code> — replace <code>{username}</code> with your Windows account folder name, or use the actual folder containing your CSV file.</td></tr>
+<tr><td>Date Format</td><td><code>MM/dd/yyyy HH:mm:ss</code> — keep the value shown in the connection form for this lab.</td></tr>
+<tr><td>Code Page</td><td><code>UTF-8</code> — save <code>customers.csv</code> using UTF-8 encoding to match.</td></tr>
+</tbody></table><p class="muted">The Directory is the folder containing <code>customers.csv</code>, not the full filename. You can use Browse to select that folder on the Secure Agent machine.</p><p class="muted">Date Format controls date fields. This sample contains id, first name, last name, age, and country, so it has no date fields to parse. For a future file with dates, choose a format that matches those values.</p><p class="muted">Reference: <a href="https://docs.informatica.com/content/dam/source/GUID-C/GUID-CA175F30-A1FD-4102-B8DE-891380E53A73/3/en/CDI__FlatFileConnector_en.pdf" target="_blank" rel="noopener noreferrer">Informatica Flat File Connector documentation</a>.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">5</div><div><strong>Save the connection.</strong><div class="muted">You should now see <code>CONN_Training_Files</code> in the Connections list.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="callout">This tells Informatica to access files in <code>C:\Users\{username}\Documents</code> through the Secure Agent running in <code>LocalTrainingRuntime</code>.</div>
+</section>
+
+<section class="card" id="mapping"><h2>4. Create the Mapping</h2><div class="callout"><strong>Find your way around Data Integration</strong><ul><li><strong>Home</strong> — return to the page with the Transform tile.</li><li><strong>New...</strong> — start creating a new asset.</li><li><strong>Explore</strong> — find and reopen saved assets as you work through the lab.</li><li><strong>My Jobs</strong> — review your job runs later in the exercise.</li></ul><p>The cloud data warehouse banner is optional for this local CSV exercise. Continue with <strong>Transform</strong>.</p></div>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Open <code>Data Integration</code> and select <code>Home</code>.</strong><p>Use the service selector beside the Informatica logo at the top left to switch from Administrator to Data Integration. On the left sidebar, select <strong>Home</strong>. The home page shows the large <strong>Transform</strong> and <strong>Orchestrate</strong> tiles.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Click the <code>Transform</code> tile to start creating a mapping.</strong><p>Find the large <strong>Transform</strong> tile on the left of the main content area. Its description says it creates a mapping to load, cleanse, and transform data. This is the entry point for the customer CSV mapping in this exercise.</p><div class="muted">You can also use <strong>New...</strong> at the top of the left sidebar and select <strong>Mapping</strong>. Continue to the mapping editor, completing any creation prompts shown.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Create the mapping:</strong><table><tr><th>Setting</th><th>Value</th></tr><tr><td>Name</td><td><code>m_customer_training</code></td></tr><tr><td>Location</td><td><code>Default</code></td></tr></table></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Add and connect these components in order:</strong><pre>Source → Expression → Filter → Target</pre></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="source"><h2>5. Configure the Source</h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Rename the Source transformation in its General properties.</strong><ol><li>Click the <strong>Source</strong> box on the mapping canvas.</li><li>In the panel below the canvas, select <strong>Properties</strong>.</li><li>Select <strong>General</strong> in the left-hand list within that panel.</li><li>In the <strong>Name</strong> field, enter <code>SRC_Customer</code>.</li></ol><p class="muted">The source box on the canvas should display <code>SRC_Customer</code>. This field names the source transformation within the mapping.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Open the Source settings for <code>SRC_Customer</code>.</strong><p>Keep the source box selected. In the same <strong>Properties</strong> panel, click <strong>Source</strong> in the left-hand list, directly below <strong>General</strong>. Then configure the connection and file using the values in the next step.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Configure the source:</strong>
+<table><tr><th>Setting</th><th>Value</th></tr><tr><td>Connection</td><td><code>CONN_Training_Files</code></td></tr><tr><td>Object Type</td><td><code>Single Object</code></td></tr><tr><td>Object</td><td><code>customers.csv</code></td></tr></table>
+<div class="muted">Use the <strong>Select</strong> button if needed to browse for the object.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Click <code>Preview Data</code>.</strong><div class="muted">Confirm all five sample customers appear.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div>
+<table><tr><th>id</th><th>firstName</th><th>lastName</th><th>age</th><th>country</th></tr><tr><td>1</td><td>John</td><td>Smith</td><td>25</td><td>Australia</td></tr><tr><td>2</td><td>Mary</td><td>Jones</td><td>17</td><td>Philippines</td></tr><tr><td>3</td><td>James</td><td>Brown</td><td>35</td><td>Australia</td></tr><tr><td>4</td><td>Anna</td><td>Reyes</td><td>62</td><td>Philippines</td></tr><tr><td>5</td><td>Mark</td><td>Santos</td><td>16</td><td>Philippines</td></tr></table></div>
+<div class="step"><div class="head"><div class="n">5</div><div><strong>Open the Source <code>Fields</code> tab.</strong><div class="muted">Confirm that the CSV fields exist. In our lab <code>age</code> was detected as <code>string</code>, which is why we create <code>age_num</code> next.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="expression"><h2>6. Configure the Expression Transformation</h2>
+<div class="callout warn"><strong>Important UI detail:</strong> <code>Incoming Fields</code> shows fields entering the transformation. New calculated fields are created under the separate <code>Expression</code> tab.</div>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Select Expression and rename it <code>EXP_Customer_Transform</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Open <code>Incoming Fields</code>.</strong><div class="muted">Verify <code>id</code>, <code>firstName</code>, <code>lastName</code>, <code>age</code>, and <code>country</code> are available.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Open <code>Expression</code> and click <code>+</code> to create <code>age_num</code>.</strong>
+<table><tr><th>Setting</th><th>Value</th></tr><tr><td>Field Type</td><td>Output Field</td></tr><tr><td>Name</td><td><code>age_num</code></td></tr><tr><td>Type</td><td>integer</td></tr><tr><td>Precision</td><td>10</td></tr><tr><td>Scale</td><td>0</td></tr></table>
+<div class="muted">Click <strong>OK</strong> to create the field.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Configure <code>age_num</code>.</strong><pre>TO_INTEGER(age)</pre><div class="muted">Click <strong>Validate</strong>. Make sure “The expression is valid” appears, then click <strong>OK</strong>.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+
+<div class="step"><div class="head"><div class="n">5</div><div><strong>Create <code>full_name</code>.</strong>
+<table><tr><th>Setting</th><th>Value</th></tr><tr><td>Field Type</td><td>Output Field</td></tr><tr><td>Name</td><td><code>full_name</code></td></tr><tr><td>Type</td><td>string</td></tr><tr><td>Precision</td><td>255</td></tr></table>
+<pre>firstName || ' ' || lastName</pre><div class="muted">Validate, then click <strong>OK</strong>.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+
+<div class="step"><div class="head"><div class="n">6</div><div><strong>Create <code>customer_type</code>.</strong>
+<table><tr><th>Setting</th><th>Value</th></tr><tr><td>Field Type</td><td>Output Field</td></tr><tr><td>Name</td><td><code>customer_type</code></td></tr><tr><td>Type</td><td>string</td></tr><tr><td>Precision</td><td>20</td></tr></table>
+<pre>IIF(TO_INTEGER(age) >= 60, 'Senior', 'Standard')</pre><div class="muted">Validate, then click <strong>OK</strong>.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="callout ok"><strong>Expression result:</strong> <code>age_num</code> converts age to an integer, <code>full_name</code> combines the names, and <code>customer_type</code> marks ages 60+ as Senior.</div>
+</section>
+
+<section class="card" id="filter"><h2>7. Filter for Adult Customers</h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Select Filter and rename it <code>FIL_AdultOnly</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Open the <code>Filter</code> tab.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Keep <code>Filter Condition = Simple</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Click <code>+</code> beside Filter Conditions and enter:</strong><table><tr><th>Field</th><th>Value</th></tr><tr><td>Field Name</td><td><code>age_num</code></td></tr><tr><td>Operator</td><td><code>&gt;=</code></td></tr><tr><td>Value</td><td><code>18</code></td></tr></table></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="callout">Expected survivors: John (25), James (35), and Anna (62). Mary (17) and Mark (16) are filtered out.</div>
+</section>
+
+<section class="card" id="target"><h2>8. Configure the Target</h2>
+<div class="step"><div class="head"><div class="n">1</div><div style="flex:1;min-width:0"><strong>Select the Target box on the mapping canvas.</strong><p>Click the final <strong>Target</strong> transformation connected after <code>FIL_AdultOnly</code>. Its configuration appears in the panel below the canvas.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div style="flex:1;min-width:0"><strong>Open the Target properties.</strong><p>In the lower panel, select <strong>Properties</strong>, then click <strong>Target</strong> in the left-hand list. The Details area contains Connection, Object Type, and Object.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div style="flex:1;min-width:0"><strong>Choose the connection and object type.</strong><table><thead><tr><th scope="col">Setting</th><th scope="col">Value</th></tr></thead><tbody><tr><td>Connection</td><td><code>CONN_Training_Files (Flat File)</code></td></tr><tr><td>Object Type</td><td><code>Single Object</code></td></tr></tbody></table><p>Leave <strong>Use a local file for target metadata</strong> unchecked for this exercise.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div style="flex:1;min-width:0"><strong>Open the Target Object dialog.</strong><ol><li>Click <strong>Select...</strong> beside the <strong>Object</strong> field.</li><li>In the <strong>Target Object</strong> dialog, choose <strong>Create New at Runtime</strong>.</li></ol><p class="muted">Create New at Runtime is an option inside this dialog. Keep Object Type set to Single Object in the underlying Target properties.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">5</div><div style="flex:1;min-width:0"><strong>Enter the output filename and confirm.</strong><p>In the <strong>Target Object</strong> dialog, leave <strong>Use a Dynamic File Name</strong> unchecked and enter this value in <strong>Static File Name</strong>:</p><pre>adult_customers.csv</pre><p>Keep the other options at their defaults for the supplied sample data, then click <strong>OK</strong>.</p><p>Back in <strong>Properties → Target</strong>, confirm that <strong>Object</strong> displays <code>adult_customers.csv</code>. The <strong>Operation</strong> field shows <strong>Insert</strong> and may be read-only.</p><div class="callout">The new file is created when the mapping task executes. It will be written to the folder configured in <code>CONN_Training_Files</code>.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">6</div><div style="flex:1;min-width:0"><strong>Review the incoming fields.</strong><p>In the left-hand list of the Properties panel, click <strong>Incoming Fields</strong>. Confirm that these fields arrive from the preceding transformation:</p><pre>id, firstName, lastName, age, country, age_num, full_name, customer_type</pre></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">7</div><div style="flex:1;min-width:0"><strong>Keep the default target field order and review Field Mapping.</strong><ol><li>Click <strong>Target Fields</strong> in the left-hand list.</li><li>For <strong>Do you want to modify the order of the fields while creating file at runtime?</strong>, leave <strong>No (Default)</strong> selected.</li><li>Click <strong>Field Mapping</strong> in the same list. Review the mapping information shown. If a field mapping grid is displayed, confirm that each incoming field maps to its corresponding target field.</li></ol><p class="muted">For this runtime-created target, the Target Fields screen can show only the field-order question. Seeing No (Default) here is expected for this exercise.</p></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="run"><h2>9. Save, Validate, and Run</h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Click <code>Save</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Confirm the mapping shows <span class="good">Valid</span>.</strong><div class="muted">If it still says Invalid, do not run it. Recheck Source, expressions, Filter, Target, and Field Mapping.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Click <code>Run</code>.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">4</div><div><strong>Open <code>My Jobs</code>.</strong><div class="muted">The first status may be Starting. Refresh until it finishes.</div></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">5</div><div><strong>Confirm the completed job.</strong><pre>Status: Success
+Rows Processed: 3</pre></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+</section>
+
+<section class="card" id="verify"><h2>10. Verify <code>adult_customers.csv</code></h2>
+<div class="step"><div class="head"><div class="n">1</div><div><strong>Open <code>C:\Users\{username}\Documents</code> in Windows Explorer.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">2</div><div><strong>Confirm both files exist.</strong><pre>customers.csv
+adult_customers.csv</pre></div><label class="done"><input class="check" type="checkbox">Done</label></div></div>
+<div class="step"><div class="head"><div class="n">3</div><div><strong>Open <code>adult_customers.csv</code> and compare the result.</strong></div><label class="done"><input class="check" type="checkbox">Done</label></div>
+<pre>"id","firstName","lastName","age","country","age_num","full_name","customer_type"
+"1","John","Smith","25","Australia",25,"John Smith","Standard"
+"3","James","Brown","35","Australia",35,"James Brown","Standard"
+"4","Anna","Reyes","62","Philippines",62,"Anna Reyes","Senior"</pre></div>
+<div class="callout ok"><strong>Exercise complete.</strong> Five input rows became three output rows after the adult filter, while the mapping also added three derived fields.</div>
+</section>
+
+<section class="card" id="trouble"><h2>Troubleshooting</h2>
+<details open><summary>FR_3000 — No such file or directory</summary><pre>FR_3000 Error opening file [/Users/{username}/Documents/customers.csv].
+Operating system error message [No such file or directory].</pre><p><strong>Cause:</strong> the Windows Secure Agent was given a macOS-style file path.</p><p><strong>Fix:</strong> set the Flat File connection to <code>C:\Users\{username}\Documents</code>.</p></details>
+<details><summary>Preview Data does not show the customer rows</summary><ul><li>Confirm <code>customers.csv</code> exists in the configured folder.</li><li>Confirm <code>CONN_Training_Files</code> points to the correct Windows directory.</li><li>Confirm <code>LocalTrainingRuntime</code> is Running.</li><li>Confirm the Secure Agent has access to the folder.</li></ul></details>
+<details><summary>An expression is invalid</summary><p>Use the exact expressions:</p><pre>TO_INTEGER(age)
+
+firstName || ' ' || lastName
+
+IIF(TO_INTEGER(age) >= 60, 'Senior', 'Standard')</pre><p>Click <strong>Validate</strong> for each expression before closing the editor.</p></details>
+<details><summary>The mapping remains Invalid</summary><ul><li>Make sure Source → Expression → Filter → Target are connected.</li><li>Check the Source object and Flat File connection.</li><li>Validate all three calculated fields.</li><li>Check the simple filter condition <code>age_num >= 18</code>.</li><li>Check Target Fields and Field Mapping.</li></ul></details>
+</section>
+
+<section class="card" id="recap"><h2>What You Built</h2>
+<div class="flow"><div class="node">Extract<br><span class="muted">customers.csv</span></div><div class="arrow">→</div><div class="node">Transform<br><span class="muted">age_num, full_name, customer_type</span></div><div class="arrow">→</div><div class="node">Filter<br><span class="muted">age_num ≥ 18</span></div><div class="arrow">→</div><div class="node">Load<br><span class="muted">adult_customers.csv</span></div></div>
+<footer><strong>Training Series</strong><br>Exercise 1 is intentionally modular so future Data Integration exercises can be added using the same visual structure, navigation, and progress tracking.</footer>
+</section>
+</main>
+</div>
+<script>
+const checks=[...document.querySelectorAll('.check')], total=document.getElementById('totalCount'), done=document.getElementById('doneCount'), bar=document.getElementById('progress');
+total.textContent=checks.length;
+checks.forEach((c,i)=>{c.checked=localStorage.getItem('inf_ex1_'+i)==='1';c.addEventListener('change',()=>{localStorage.setItem('inf_ex1_'+i,c.checked?'1':'0');update()})});
+function update(){const n=checks.filter(x=>x.checked).length;done.textContent=n;bar.style.width=(n/checks.length*100)+'%'}
+function resetProgress(){checks.forEach((c,i)=>{c.checked=false;localStorage.removeItem('inf_ex1_'+i)});update()}
+update();
+</script>
+
+<script>
+(() => {
+  const dropdowns = [...document.querySelectorAll('.training-navigation .nav-dropdown')];
+  document.addEventListener('click', (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) dropdown.open = false;
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const focusedDropdown = dropdowns.find((dropdown) => dropdown.open && dropdown.contains(document.activeElement));
+    dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    if (focusedDropdown) focusedDropdown.querySelector('summary').focus();
+  });
+})();
+</script>
+</body>
+</html>

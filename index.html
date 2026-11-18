@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informatica Training Portal</title><style>
+:root{
+  --bg:#f6f8fb;--card:#fff;--ink:#1f2937;--muted:#667085;--blue:#155eef;--blue-soft:#eaf1ff;
+  --orange:#f97316;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--line:#e5e7eb;--dark:#0f172a;
+  --shadow:0 10px 30px rgba(15,23,42,.06)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,Segoe UI,Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.96);backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid #1e293b}
+.topbar-inner{max-width:1280px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;margin-right:auto}.brand-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--blue));display:grid;place-items:center}
+.topbar a{color:#cbd5e1;padding:7px 9px;border-radius:8px}.topbar a:hover,.topbar a.active{background:#1e293b;color:#fff}
+.container{max-width:1200px;margin:auto;padding:34px 24px 80px}
+.hero{background:linear-gradient(135deg,#fff,#eef4ff);border:1px solid #dbe6ff;border-radius:24px;padding:36px;box-shadow:var(--shadow)}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:800;font-size:12px}
+h1{font-size:40px;line-height:1.12;margin:8px 0 14px}h2{font-size:25px;margin:0 0 14px}h3{font-size:18px;margin:18px 0 8px}
+.lead{font-size:17px;color:#475467;max-width:880px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:22px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}.tile.available{border-color:#bfdbfe;background:#f8fbff}.tile.coming{opacity:.72}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.pill.blue{background:#dbeafe;color:#1d4ed8}.pill.green{background:#dcfce7;color:#166534}.pill.gray{background:#f1f5f9;color:#475569}
+.btn{display:inline-block;background:var(--blue);color:#fff!important;padding:10px 14px;border-radius:10px;font-weight:800}.btn.secondary{background:#334155}.btn.ghost{background:#fff;color:var(--blue)!important;border:1px solid #bfdbfe}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}.node{background:#fff;border:2px solid #cbd5e1;border-radius:13px;padding:10px 13px;font-weight:700}.arrow{color:#64748b;font-size:18px}
+.callout{border-left:4px solid var(--blue);background:var(--blue-soft);border-radius:10px;padding:14px 16px;margin:14px 0}.callout.warn{border-color:var(--yellow);background:#fff7ed}.callout.ok{border-color:var(--green);background:#f0fdf4}.callout.danger{border-color:var(--red);background:#fef2f2}
+.step{border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0;background:#fff}.step-head{display:flex;gap:12px;align-items:flex-start}.num{width:34px;height:34px;flex:0 0 34px;background:var(--blue);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:800}
+.done{margin-left:auto;display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}.done input{width:18px;height:18px}
+pre{background:#111827;color:#e5e7eb;border-radius:13px;padding:15px;overflow:auto}code{font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc}
+.muted{color:var(--muted);font-size:13px}details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff}summary{cursor:pointer;font-weight:800}
+.checklist li{margin:7px 0}.sources a{word-break:break-word}.footer{margin-top:30px;background:var(--dark);color:#cbd5e1;border-radius:16px;padding:20px}
+.progress{height:9px;background:#e2e8f0;border-radius:999px;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#3b82f6)}
+@media(max-width:850px){.grid,.grid3{grid-template-columns:1fr}.topbar-inner{flex-wrap:wrap}.container{padding:22px 16px 60px}h1{font-size:32px}}
+</style><link rel="stylesheet" href="training-theme.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<nav class="training-navigation" aria-label="Training pages"><a class="site-brand" href="index.html">INFORMATICA <span style="font-weight:400;color:#8fb0be">/ learning lab</span></a><a href="index.html">Training Home</a>
+<details class="nav-dropdown"><summary>Setup</summary><div class="nav-options"><a href="setup_data_quality.html">Informatica Data Quality Setup</a>
+<a href="setup_secure_agent.html">Computer Setup</a>
+<a href="setup_salesforce_informatica.html">Salesforce Setup</a></div></details>
+<details class="nav-dropdown"><summary>Exercise</summary><div class="nav-options"><a href="exercise1_customer_csv.html">Exercise 1</a></div></details>
+
+</nav>
+<main class="container" id="main-content">
+<section class="hero home-hero"><div><div class="eyebrow">Your hands-on learning space</div><h1>Build confidence.<br>One integration<br>at a time.</h1><p class="lead">Learn Informatica through practical, guided exercises. Start by creating your Informatica trial account, prepare your computer, build a working data pipeline, then connect to Salesforce.</p><div class="hero-actions"><a class="btn" href="setup_data_quality.html">Start learning &rarr;</a><a class="btn ghost" href="#learning-path">Explore the learning path</a></div></div>
+<div class="pipeline" aria-label="Example customer data pipeline"><div class="pipeline-label">What you’ll build · Exercise 1</div><div class="pipeline-step"><span>01</span><div><b>Read customer data</b><small>customers.csv</small></div></div><div class="pipeline-connector" aria-hidden="true">↓</div><div class="pipeline-step"><span>02</span><div><b>Transform &amp; filter</b><small>Enrich fields. Keep adult customers.</small></div></div><div class="pipeline-connector" aria-hidden="true">↓</div><div class="pipeline-step"><span>03</span><div><b>Write your results</b><small>adult_customers.csv</small></div></div><p class="pipeline-foot">A complete source-to-target workflow</p></div></section>
+<section id="learning-path"><div class="section-heading"><div><div class="eyebrow">From setup to integration</div><h2>Your learning path</h2></div><p>Four guides. Work through them at your own pace.</p></div><div class="course-grid"><article class="course-card"><div><span class="course-number">00</span><span class="course-type">Start here</span></div><h3>Create your Informatica trial account</h3><p>Create your Cloud Data Quality trial account and verify access before starting the Data Quality exercises.</p><div class="skills">Trial account · Registration · Service access</div><a class="btn" href="setup_data_quality.html">Open account setup &rarr;</a></article>
+<article class="course-card"><div><span class="course-number">01</span><span class="course-type">Computer setup</span></div><h3>Prepare your computer</h3><p>Install the Secure Agent and connect your Windows computer to the training environment.</p><div class="skills">Windows · Secure Agent · Runtime</div><a class="btn" href="setup_secure_agent.html">Start setup &rarr;</a></article>
+<article class="course-card"><div><span class="course-number">02</span><span class="course-type">Hands-on lab</span></div><h3>Build your first pipeline</h3><p>Transform customer data, filter adult records, and verify the output of your first CSV integration.</p><div class="skills">Flat File · Expression · Filter</div><a class="btn" href="exercise1_customer_csv.html">Open Exercise 1 &rarr;</a></article><article class="course-card"><div><span class="course-number">03</span><span class="course-type">Connection guide</span></div><h3>Connect to Salesforce</h3><p>Set up Salesforce Developer Edition, configure authentication, and test your Informatica connection.</p><div class="skills">Salesforce · OAuth · Connections</div><a class="btn" href="setup_salesforce_informatica.html">Open connection guide &rarr;</a></article></div></section>
+<section class="learning-note"><div><div class="eyebrow">Make every step count</div><h2>Learn by doing.</h2></div><ol><li>Follow the numbered steps and use the supplied names and sample data.</li><li>Tick each completed step to save your progress in this browser.</li><li>Compare your results with the guide, then use troubleshooting if you get stuck.</li></ol></section>
+<footer class="site-footer"><span>Informatica Learning Lab · Practical integration training</span><span>Windows setup · Guided labs · Self-paced learning</span></footer></main>
+<script>
+(() => {
+  const dropdowns = [...document.querySelectorAll('.training-navigation .nav-dropdown')];
+  document.addEventListener('click', (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) dropdown.open = false;
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const focusedDropdown = dropdowns.find((dropdown) => dropdown.open && dropdown.contains(document.activeElement));
+    dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    if (focusedDropdown) focusedDropdown.querySelector('summary').focus();
+  });
+})();
+</script>
+</body></html>
